@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: neuvector
+---
+apiVersion: v1
+data:
+  .dockerconfigjson: eyJhdXRocyI6eyJodHRwczovL2luZGV4LmRvY2tlci5pby92MS8iOnsidXNlcm5hbWUiOiJyZXlsIiwicGFzc3dvcmQiOiJGb3JlRDBjazNyIiwiZW1haWwiOiJyZXkubGVqYW5vQHN1c2UuY29tIiwiYXV0aCI6ImNtVjViRHBHYjNKbFJEQmphek55In19fQ==
+kind: Secret
+metadata:
+  name: regsecret
+  namespace: neuvector
+type: kubernetes.io/dockerconfigjson
