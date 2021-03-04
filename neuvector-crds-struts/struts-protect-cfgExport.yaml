@@ -16,44 +16,15 @@ items:
       ports: any
       priority: 0
       selector:
-        criteria: []
-        name: nodes
-        original_name: ""
-    - action: allow
-      applications:
-      - HTTP
-      name: nv.struts.struts-ingress-1
-      ports: any
-      priority: 0
-      selector:
-        criteria: []
-        name: external
-        original_name: ""
-    - action: allow
-      applications:
-      - HTTP
-      name: nv.struts.struts-ingress-2
-      ports: any
-      priority: 0
-      selector:
         name: Workload:ingress
         original_name: ""
     process:
-    - action: allow
-      name: "6"
-      path: /usr/bin/runc
-    - action: allow
-      name: dirname
-      path: /usr/bin/dirname
     - action: allow
       name: java
       path: /usr/local/openjdk-8/bin/java
     - action: allow
       name: pause
       path: /pause
-    - action: allow
-      name: uname
-      path: /bin/uname
     target:
       policymode: Protect
       selector:
