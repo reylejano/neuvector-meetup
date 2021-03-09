@@ -3,6 +3,39 @@ kind: Namespace
 metadata:
   name: struts
 ---
+apiVersion: v1
+items:
+- apiVersion: neuvector.com/v1
+  kind: NvSecurityRule
+  metadata:
+    name: nv.struts.struts
+    namespace: struts
+  spec:
+    egress: []
+    file: []
+    ingress: []
+    process:
+    - action: allow
+      name: java
+      path: /usr/local/openjdk-8/bin/java
+    - action: allow
+      name: pause
+      path: /pause
+    target:
+      policymode: Protect
+      selector:
+        criteria:
+        - key: service
+          op: =
+          value: struts.struts
+        - key: domain
+          op: =
+          value: struts
+        name: nv.struts.struts
+        original_name: ""
+kind: List
+metadata: null
+---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -39,36 +72,3 @@ spec:
     - protocol: TCP
       port: 8080
       targetPort: 8080
----
-apiVersion: v1
-items:
-- apiVersion: neuvector.com/v1
-  kind: NvSecurityRule
-  metadata:
-    name: nv.struts.struts
-    namespace: struts
-  spec:
-    egress: []
-    file: []
-    ingress: []
-    process:
-    - action: allow
-      name: java
-      path: /usr/local/openjdk-8/bin/java
-    - action: allow
-      name: pause
-      path: /pause
-    target:
-      policymode: Protect
-      selector:
-        criteria:
-        - key: service
-          op: =
-          value: struts.struts
-        - key: domain
-          op: =
-          value: struts
-        name: nv.struts.struts
-        original_name: ""
-kind: List
-metadata: null
