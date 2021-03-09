@@ -50,16 +50,7 @@ items:
   spec:
     egress: []
     file: []
-    ingress:
-    - action: allow
-      applications:
-      - HTTP
-      name: nv.struts.struts-ingress-0
-      ports: any
-      priority: 0
-      selector:
-        name: Workload:ingress
-        original_name: ""
+    ingress: []
     process:
     - action: allow
       name: java
